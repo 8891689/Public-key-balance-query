@@ -183,7 +183,7 @@ Info: Closed output file 'b.550001.600000.txt'.
 Info: Closed public key file '550001.600000.txt'.
 Info: Freed Bloom Filter.
 ```
-# Bloom Filter False Positives: The program uses a Bloom Filter for rapid lookup of target addresses. A Bloom Filter is a probabilistic data structure and can have false positives (reporting an element exists when it doesn't). This means the list of public keys output by the program only contains potentially matching public keys. You MUST manually verify or use another tool to confirm if each output public key truly corresponds to an address in your target list. The false positive rate can be adjusted in the code (default is 0.000001).
+Bloom Filter False Positives: The program uses a Bloom Filter for rapid lookup of target addresses. A Bloom Filter is a probabilistic data structure and can have false positives (reporting an element exists when it doesn't). This means the list of public keys output by the program only contains potentially matching public keys. You MUST manually verify or use another tool to confirm if each output public key truly corresponds to an address in your target list. The false positive rate can be adjusted in the code (default is 0.000001).
 
 1. Address Type Coverage: The program attempts to generate multiple possible address types (compressed/uncompressed P2PKH, P2SH, Bech32, etc., plus ETH) for each public key and checks all of them against the Bloom Filter. Therefore, a public key might be flagged as a "possible match" even if its standard address type is not in the target list, but one of its non-standard types (e.g., a P2PKH address derived from the uncompressed key) is in the target list.
 
