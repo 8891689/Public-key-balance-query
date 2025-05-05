@@ -242,7 +242,11 @@ BTG P2PKH (Uncompressed Pubkey Hash): GX8HzDj1HqeCzqYFFzoEBzPwdvKZ4H2538
 ETH ETH (from Uncompressed Pubkey): 0x7e5f4552091a69125d5dfcb7b8c2659029395bdf
 ------------------------------------------------------------------------------------
 ```
-# The obtained address can be directly searched in the blockchain browser.
+# The obtained address can be searched directly in the blockchain browser. Remember to replace the address, you can check the currency of the machine with one click.
+
+https://privatekeys.pw/address/bitcoin/1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
+
+to
 
 https://www.oklink.com/zh-hans/all-chain
 
@@ -293,6 +297,33 @@ if (balance_length >= 9) {
 fprintf(output_file_9_plus, "%s\t%s\n", address, balance_str);
 }
 The number of digits can be set, and ETH can be more complicated.
+```
+
+8. Various addresses and hash values, as well as public key extraction commands, such as extracting only the address of the required length from the document, as well as the hash value 160, the public key, the document name in front, and the output name behind.
+
+```
+grep -o -E '1[a-zA-Z0-9]{25,34}' Bitcoin_addresses_LATEST.txt > bitcoin_addresses.txt            // For example, this command only extracts the address and length starting with 1.
+
+grep -o -E 't[13][1-9A-HJ-NP-Za-km-z]{33,34}' blockchair_zcash_addresses_latest.tsv > zcash_addresses
+
+grep -o -E '([LM][1-9A-HJ-NP-Za-km-z]{33}|ltc1[02-9ac-hj-np-z]{39,59})' blockchair_litecoin_addresses_latest.tsv > litecoin_addresses
+
+grep -o -E '([DA9][1-9A-HJ-NP-Za-km-z]{25,34})' blockchair_dogecoin_addresses_latest.tsv > dogecoin_addresses
+
+grep -o -E '([X7][1-9A-HJ-NP-Za-km-z]{33})' blockchair_dash_addresses_latest.tsv > dash_addresses
+
+grep -o -E '([qp][0-9a-z]{42})' blockchair_bitcoin-cash_addresses_latest.tsv > cash_addresses
+                                   ---------------------------------          ---------------
+                                        Download document data from the website  >  Extract plain text address
+
+grep -Eo '\b[a-fA-F0-9]{40}\b' bitcoin.160.txt > all.Bitcoin.160.txt     // This is the hash 160 of length 40 in the extracted document. Remove the redundant length and the non-conforming hash value.
+
+
+grep -o -E '[0-9a-fA-F]{66}' b9b6d08d1e16.txt > 9b6d08d1e16.txt          //This is to extract the public key in the document that meets the length and prefix, and output it to a new document. Test the small data and extract it if it is suitable. If it is not suitable, ask AI to help you adjust it.
+
+grep -o -E '0[23][0-9a-fA-F]{64}' b9b6d08d1e16.txt > 9b6d08d1e16.txt
+
+grep -E '^[0-9a-fA-F]{66} # +' 189b3bc478.txt | grep -o -E '[0-9a-fA-F]{66}' > bc478.txt
 ```
 
 # Acknowledgements
