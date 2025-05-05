@@ -242,11 +242,11 @@ BTG P2PKH (Uncompressed Pubkey Hash): GX8HzDj1HqeCzqYFFzoEBzPwdvKZ4H2538
 ETH ETH (from Uncompressed Pubkey): 0x7e5f4552091a69125d5dfcb7b8c2659029395bdf
 ------------------------------------------------------------------------------------
 ```
-# The obtained address can be searched directly in the blockchain browser. Remember to replace the address, you can check the currency of the machine with one click.
+# The obtained address can be searched directly in the blockchain browser. Remember to replace the address, you can view many currencies with one click.
 
 https://privatekeys.pw/address/bitcoin/1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
 
-to
+or
 
 https://www.oklink.com/zh-hans/all-chain
 
