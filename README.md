@@ -130,6 +130,62 @@ Info: Closed output file 'b.550001.600000.txt'.
 Info: Closed public key file '550001.600000.txt'.
 Info: Freed Bloom Filter.
 ```
+1. -i The input is a standard public key, which can be compressed or uncompressed.
+
+```
+0290a2f9989d3ee835d80f6acff19fc5c2adc01caa693d4f54b84c1508c1b0d86f
+027a4534be73c419f15c78ec292fcd393ce9315489a57a26da9b55e4d532f36d8b
+02c164c2dc5c5163bb36531f466b47a5969d50bdec861aecc156ea14abbbf6c24b
+0385868f81aa668ef3dd6769b8ac55aeaccc344972397629e77632aaa13bb16473
+02a0338ec5d9998048690cdebbc9f7a65f2ca6546c54be3c121355c834d39d99d6
+02d392869096193c8dcbcca9f169e447eb51017cd59261f40207a60230ab1c8618
+.
+.
+032e4311413bc458a9920d81c106980b877cd6eab1d533e34fe7513edd5734b710
+```
+
+2. -f Address input data is as follows. The data downloaded from the website is directly used as input.
+
+```
+3gs5efa8jftqghp9cgjoounkdqegzxbmik 4499984877
+3du14mcg7mravllqyosquknl5y2r2rskjf 4499959472
+15qdb9ocfg7epcgkdsc3lf2ztktfnfmb4h 4499959107
+1kzlwxcdx82ysecm2rwzvnssgclaifbt7r 4499934503
+1ksuwcoubisb8fsxjjht75ymsfgnswrndo 4499761694
+17unwje5jylxvngcwtlhvbshe2ewasfhbr 4499743048
+.
+.
+bc1qe6jzdxwgw2yxxu7rgj4dfq3ah5vgu8zgdvc6ql 1
+```
+3. -o hits the match. The public key and address with balance, including the balance, are as follows:
+
+
+```
+0290a2f9989d3ee835d80f6acff19fc5c2adc01caa693d4f54b84c1508c1b0d86f 3gs5efa8jftqghp9cgjoounkdqegzxbmik 4499984877
+027a4534be73c419f15c78ec292fcd393ce9315489a57a26da9b55e4d532f36d8b 3du14mcg7mravllqyosquknl5y2r2rskjf 4499959472
+02c164c2dc5c5163bb36531f466b47a5969d50bdec861aecc156ea14abbbf6c24b 15qdb9ocfg7epcgkdsc3lf2ztktfnfmb4h 4499959107
+0385868f81aa668ef3dd6769b8ac55aeaccc344972397629e77632aaa13bb16473 1kzlwxcdx82ysecm2rwzvnssgclaifbt7r 4499934503
+02a0338ec5d9998048690cdebbc9f7a65f2ca6546c54be3c121355c834d39d99d6 1ksuwcoubisb8fsxjjht75ymsfgnswrndo 4499761694
+02d392869096193c8dcbcca9f169e447eb51017cd59261f40207a60230ab1c8618 17unwje5jylxvngcwtlhvbshe2ewasfhbr 4499743048
+.
+.
+032e4311413bc458a9920d81c106980b877cd6eab1d533e34fe7513edd5734b710 bc1qe6jzdxwgw2yxxu7rgj4dfq3ah5vgu8zgdvc6ql 1
+```
+
+4. Add -x, -o, and the output matches successfully. The public key is as follows:
+```
+0290a2f9989d3ee835d80f6acff19fc5c2adc01caa693d4f54b84c1508c1b0d86f
+027a4534be73c419f15c78ec292fcd393ce9315489a57a26da9b55e4d532f36d8b
+02c164c2dc5c5163bb36531f466b47a5969d50bdec861aecc156ea14abbbf6c24b
+0385868f81aa668ef3dd6769b8ac55aeaccc344972397629e77632aaa13bb16473
+02a0338ec5d9998048690cdebbc9f7a65f2ca6546c54be3c121355c834d39d99d6
+02d392869096193c8dcbcca9f169e447eb51017cd59261f40207a60230ab1c8618
+.
+.
+032e4311413bc458a9920d81c106980b877cd6eab1d533e34fe7513edd5734b710
+```
+
+
 
 CashAddr Without Prefix: For Bitcoin Cash (BCH) CashAddr, the program generates and checks the address string without the prefix (like bitcoincash:). Please ensure your target address file for BCH also does not contain these prefixes.
 
@@ -145,7 +201,7 @@ http://addresses.loyce.club/
 
 https://blockchair.com/dumps
 ```
-# The public key mentioned verifies whether there is a balance.
+# The public key mentioned alone verifies whether there is a balance.
 ```
 gcc public.c sha256.c ripemd160.c base58.c bech32.c keccak256.c cashaddr.c -O3 -march=native -o p libsecp256k1.a
 ```
